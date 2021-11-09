@@ -1,31 +1,41 @@
 <div class="card border-primary mb-3">
-  <div class="card-header"><h3 class="text-center">Clientes</h3></div>
-  <div class="card-body text-primary">
-    <h5 class="card-title text-center">Listado de Clientes</h5>
+    <div class="card-header">
+        <h3 class="text-center">Clientes</h3>
+    </div>
+    <div class="card-body text-primary">
+        <h5 class="card-title text-center">Listado de Clientes</h5>
 
-    <table class="table table-bordered table-striped">
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>Nombres</th>
-          <th>Apellidos</th>
-          <th>Fecha de Creacion</th>
-          <th>Correo</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let cliente of clientes">
-          <td>{{ cliente.id }}</td>
-          <td>{{ cliente.nombre }}</td>
-          <td>{{ cliente.apellido }}</td>
-          <td>{{ cliente.createAt }}</td>
-          <td>{{ cliente.email }}</td>
-        </tr>
+        <div class="my-2 text-left">
+            <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/clientes/form']">
+             Crear Cliente
+      </button>
+        </div>
 
-      </tbody>
-    </table>
-
-
-
-  </div>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Fecha de Creacion</th>
+                    <th>Correo</th>
+                    <th>Direccion</th>
+                    <th>Editar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cliente of clientes">
+                    <td>{{ cliente.id }}</td>
+                    <td>{{ cliente.nombre }}</td>
+                    <td>{{ cliente.apellido }}</td>
+                    <td>{{ cliente.createAt }}</td>
+                    <td>{{ cliente.email }}</td>
+                    <td>{{ cliente.direccion }}</td>
+                    <td>
+                        <button type="button" name="button" [routerLink]="['/clientes/form' , cliente.id]" class="btn btn-primary">Editar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
